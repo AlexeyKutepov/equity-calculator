@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OrmLite example</title>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+</head>
+<body>
+<!-- Модальные окна -->
+<div class="modal fade" id="modalAddAsset" tabindex="-1" role="dialog" aria-labelledby="modalAddAssetLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalAddAssetLabel">Добавить актив</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                <button type="button" class="btn btn-primary">Добавить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalAddLiability" tabindex="-1" role="dialog" aria-labelledby="modalAddLiabilityLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalAddLiabilityLabel">Добавить обязательство</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                <button type="button" class="btn btn-primary">Добавить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Контент -->
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h1>Собственный капитал
+                        <small>обзор</small>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="equityAmount" class="well well-sm"><h4>Собственный капитал:</h4></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Активы
+                        <div class="btn-group pull-right">
+                            <button id="btnAddAsset" type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAddAsset">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table id="tableAsset" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Название актива</th>
+                                    <th>Категория актива</th>
+                                    <th>Стоимость актива</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Суммарные активы:</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        Обязательства
+                        <div class="btn-group pull-right">
+                            <button id="btnAddLiability" type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAddLiability">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table id="tableLiability" class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Название долга</th>
+                                <th>Категория долга</th>
+                                <th>Остаток</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>Общие обязательства:</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/jquery-3.1.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/script.js"></script>
+</body>
+</html>
