@@ -14,6 +14,7 @@
     <ormlite.version>5.0</ormlite.version>
     <javax.inject.version>1</javax.inject.version>
     <sqlite.version>3.8.11.2</sqlite.version>
+    <jackson.version>2.5.1</jackson.version>
   </properties>
 
   <dependencies>
@@ -73,12 +74,21 @@
       <version>${ormlite.version}</version>
     </dependency>
 
+    <!--Jackson-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
     <resources>
       <resource>
         <directory>src/main/webapp</directory>
+      </resource>
+      <resource>
+        <directory>src/main/webapp/WEB-INF/pages</directory>
       </resource>
     </resources>
     <finalName>ormlite-example</finalName>

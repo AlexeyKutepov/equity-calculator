@@ -4,19 +4,36 @@
     <meta charset="UTF-8">
     <title>OrmLite example</title>
 
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="static/css/bootstrap-select.min.css"/>
 </head>
 <body>
 <!-- Модальные окна -->
 <div class="modal fade" id="modalAddAsset" tabindex="-1" role="dialog" aria-labelledby="modalAddAssetLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="modalAddAssetLabel">Добавить актив</h4>
             </div>
             <div class="modal-body">
-                ...
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Название актива">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <select id="selectAssetType" class="selectpicker"></select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="name" placeholder="Стоимость актива">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
@@ -27,14 +44,30 @@
 </div>
 
 <div class="modal fade" id="modalAddLiability" tabindex="-1" role="dialog" aria-labelledby="modalAddLiabilityLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="modalAddLiabilityLabel">Добавить обязательство</h4>
             </div>
             <div class="modal-body">
-                ...
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Название долга">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <select id="selectLiabilityType" class="selectpicker"></select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="name" placeholder="Остаток">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
@@ -75,21 +108,21 @@
                     <div class="panel-body">
                         <table id="tableAsset" class="table table-hover">
                             <thead>
-                                <tr>
-                                    <th>Название актива</th>
-                                    <th>Категория актива</th>
-                                    <th>Стоимость актива</th>
-                                </tr>
+                            <tr>
+                                <th>Название актива</th>
+                                <th>Категория актива</th>
+                                <th>Стоимость актива</th>
+                            </tr>
                             </thead>
                             <tbody>
 
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>Суммарные активы:</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
+                            <tr>
+                                <th>Суммарные активы:</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
                             </tfoot>
                         </table>
                     </div>
@@ -131,8 +164,10 @@
         </div>
     </div>
 </div>
-<script src="/static/js/jquery-3.1.1.min.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/script.js"></script>
+<script src="static/js/jquery-3.1.1.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/bootstrap-select.min.js"></script>
+<script src="static/js/i18n/defaults-ru_RU.min.js"></script>
+<script src="static/js/script.js"></script>
 </body>
 </html>

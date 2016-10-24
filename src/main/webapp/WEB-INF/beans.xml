@@ -23,6 +23,17 @@
     <property name="url" ref="databaseUrl" />
   </bean>
 
+  <!-- DAO -->
+  <bean id="assetTypeDAO" class="ru.kutepov.db.dao.AssetTypeDAO">
+    <constructor-arg index="0" ref="connectionSource"/>
+    <constructor-arg index="1" value="ru.kutepov.db.entity.AssetType"/>
+  </bean>
+
+  <bean id="liabilityTypeDAO" class="ru.kutepov.db.dao.LiabilityTypeDAO">
+    <constructor-arg index="0" ref="connectionSource"/>
+    <constructor-arg index="1" value="ru.kutepov.db.entity.LiabilityType"/>
+  </bean>
+
   <!--Инициализация базы данных-->
   <bean id="init" class="ru.kutepov.db.Init" init-method="init"/>
 
