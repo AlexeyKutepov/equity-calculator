@@ -29,9 +29,19 @@
     <constructor-arg index="1" value="ru.kutepov.db.entity.AssetType"/>
   </bean>
 
+  <bean id="assetDAO" class="ru.kutepov.db.dao.AssetDAO">
+    <constructor-arg index="0" ref="connectionSource"/>
+    <constructor-arg index="1" value="ru.kutepov.db.entity.Asset"/>
+  </bean>
+
   <bean id="liabilityTypeDAO" class="ru.kutepov.db.dao.LiabilityTypeDAO">
     <constructor-arg index="0" ref="connectionSource"/>
     <constructor-arg index="1" value="ru.kutepov.db.entity.LiabilityType"/>
+  </bean>
+
+  <bean id="liabilityDAO" class="ru.kutepov.db.dao.LiabilityDAO">
+    <constructor-arg index="0" ref="connectionSource"/>
+    <constructor-arg index="1" value="ru.kutepov.db.entity.Liability"/>
   </bean>
 
   <!--Инициализация базы данных-->
