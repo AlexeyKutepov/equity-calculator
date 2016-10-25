@@ -104,6 +104,27 @@ $(document).ready(function () {
         }
     });
 
+    $('#btnAddAsset').click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/api/asset/add/",
+            contentType: "application/json",
+            data: JSON.stringify({
+                name: $("#inputAssetName").val(),
+                value: $("#inputAssetValue").val(),
+                assetType: {
+                    id: $("#selectAssetType").find("option:selected").val()
+                }
+            }),
+            success: function (data) {
+                location.reload();
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("Error: " + errorThrown + xhr.status + xhr.responseText);
+            }
+        });
+    });
+
     $('.selectpicker').selectpicker({
         style: 'btn-default',
         width: '100%'

@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Название актива">
+                            <input id="inputAssetName" type="text" class="form-control" name="name" placeholder="Название актива">
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -30,14 +30,14 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <input type="number" class="form-control" name="name" placeholder="Стоимость актива">
+                            <input id="inputAssetValue" type="number" class="form-control" name="name" placeholder="Стоимость актива">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-                <button type="button" class="btn btn-primary">Добавить</button>
+                <button id="btnAddAsset" type="button" class="btn btn-primary">Добавить</button>
             </div>
         </div>
     </div>
@@ -100,7 +100,7 @@
                     <div class="panel-heading">
                         Активы
                         <div class="btn-group pull-right">
-                            <button id="btnAddAsset" type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAddAsset">
+                            <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAddAsset">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </button>
                         </div>

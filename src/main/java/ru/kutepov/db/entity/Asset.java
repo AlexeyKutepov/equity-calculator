@@ -24,6 +24,12 @@ public class Asset {
   public Asset() {
   }
 
+  public Asset(String name, double value, AssetType assetType) {
+    this.name = name;
+    this.value = value;
+    this.assetType = assetType;
+  }
+
   public int getId() {
     return id;
   }

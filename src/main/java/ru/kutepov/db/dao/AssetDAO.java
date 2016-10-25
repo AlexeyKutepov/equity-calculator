@@ -16,4 +16,9 @@ public class AssetDAO extends BaseDaoImpl<Asset, Integer> {
   public List<Asset> getAssetList() throws SQLException {
     return this.queryForAll();
   }
+
+  public Asset createAsset(Asset asset) throws SQLException {
+    this.create(asset);
+    return asset;
+  }
 }

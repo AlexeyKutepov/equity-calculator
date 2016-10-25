@@ -1,9 +1,6 @@
 package ru.kutepov.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.kutepov.db.dao.AssetDAO;
 import ru.kutepov.db.dao.AssetTypeDAO;
 import ru.kutepov.db.dao.LiabilityDAO;
@@ -41,6 +38,11 @@ public class MainController {
   @RequestMapping(value = "/asset/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
   public @ResponseBody List<Asset> getAssetList() throws SQLException {
     return assetDAO.getAssetList();
+  }
+
+  @RequestMapping(value = "/asset/add", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
+  public @ResponseBody Asset addAsset(@RequestBody Asset asset) throws SQLException {
+    return assetDAO.createAsset(asset);
   }
 
   @RequestMapping(value = "/liability/type/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
