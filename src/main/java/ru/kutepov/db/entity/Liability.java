@@ -18,7 +18,7 @@ public class Liability {
   @DatabaseField(canBeNull = false)
   private double value;
 
-  @DatabaseField(foreign = true, canBeNull = false)
+  @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true)
   private LiabilityType liabilityType;
 
   public Liability() {
