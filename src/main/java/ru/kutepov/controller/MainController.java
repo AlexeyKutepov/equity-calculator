@@ -55,4 +55,9 @@ public class MainController {
     return liabilityDAO.getLiabilityList();
   }
 
+  @RequestMapping(value = "/liability/add", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
+  public @ResponseBody Liability addLiability(@RequestBody Liability liability) throws SQLException {
+    return liabilityDAO.createLiability(liability);
+  }
+
 }

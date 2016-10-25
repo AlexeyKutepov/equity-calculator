@@ -24,6 +24,12 @@ public class Liability {
   public Liability() {
   }
 
+  public Liability(String name, double value, LiabilityType liabilityType) {
+    this.name = name;
+    this.value = value;
+    this.liabilityType = liabilityType;
+  }
+
   public int getId() {
     return id;
   }

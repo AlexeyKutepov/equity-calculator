@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Название долга">
+                            <input id="inputLiabilityName" type="text" class="form-control" name="name" placeholder="Название долга">
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -64,14 +64,14 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <input type="number" class="form-control" name="name" placeholder="Остаток">
+                            <input id="inputLiabilityValue" type="number" class="form-control" name="name" placeholder="Остаток">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-                <button type="button" class="btn btn-primary">Добавить</button>
+                <button id="btnAddLiability" type="button" class="btn btn-primary">Добавить</button>
             </div>
         </div>
     </div>
@@ -133,7 +133,7 @@
                     <div class="panel-heading">
                         Обязательства
                         <div class="btn-group pull-right">
-                            <button id="btnAddLiability" type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAddLiability">
+                            <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAddLiability">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </button>
                         </div>

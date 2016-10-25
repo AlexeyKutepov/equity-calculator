@@ -16,4 +16,9 @@ public class LiabilityDAO extends BaseDaoImpl<Liability, Integer> {
   public List<Liability> getLiabilityList() throws SQLException {
     return this.queryForAll();
   }
+
+  public Liability createLiability(Liability liability) throws SQLException {
+    this.create(liability);
+    return liability;
+  }
 }

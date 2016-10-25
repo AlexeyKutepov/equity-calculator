@@ -125,6 +125,27 @@ $(document).ready(function () {
         });
     });
 
+    $('#btnAddLiability').click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/api/liability/add/",
+            contentType: "application/json",
+            data: JSON.stringify({
+                name: $("#inputLiabilityName").val(),
+                value: $("#inputLiabilityValue").val(),
+                liabilityType: {
+                    id: $("#selectLiabilityType").find("option:selected").val()
+                }
+            }),
+            success: function (data) {
+                location.reload();
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("Error: " + errorThrown + xhr.status + xhr.responseText);
+            }
+        });
+    });
+
     $('.selectpicker').selectpicker({
         style: 'btn-default',
         width: '100%'
