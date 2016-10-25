@@ -36,7 +36,7 @@ $(document).ready(function () {
                             .text(data[i]["value"])
                         )
                     );
-                var value = parseInt(data[i]["value"]);
+                var value = parseFloat(data[i]["value"]);
                 if (!isNaN(value)) {
                     total += value;
                 }
@@ -45,6 +45,7 @@ $(document).ready(function () {
                 .find('tfoot tr th')
                 .eq(2)
                 .text(total);
+            calcAmount();
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log("Error: " + errorThrown + xhr.status + xhr.responseText);
@@ -89,7 +90,7 @@ $(document).ready(function () {
                             .text(data[i]["value"])
                         )
                     );
-                var value = parseInt(data[i]["value"]);
+                var value = parseFloat(data[i]["value"]);
                 if (!isNaN(value)) {
                     total += value;
                 }
@@ -98,6 +99,7 @@ $(document).ready(function () {
                 .find('tfoot tr th')
                 .eq(2)
                 .text(total);
+            calcAmount();
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log("Error: " + errorThrown + xhr.status + xhr.responseText);
@@ -145,6 +147,22 @@ $(document).ready(function () {
             }
         });
     });
+
+    function calcAmount() {
+        var assets = parseFloat(
+            $('#tableAsset').find('tfoot tr th').eq(2).html()
+        );
+        var liabilities = parseFloat(
+            $('#tableLiability').find('tfoot tr th').eq(2).html()
+        );
+        if (!isNaN(assets) && !isNaN(liabilities)) {
+            var result = assets - liabilities;
+            $('#equityAmount')
+                .append($('<h4>')
+                    .text("Собственный капитал: " + result)
+                )
+        }
+    }
 
     $('.selectpicker').selectpicker({
         style: 'btn-default',
