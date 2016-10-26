@@ -13,17 +13,29 @@ public class LiabilityDAO extends BaseDaoImpl<Liability, Integer> {
     super(connectionSource, dataClass);
   }
 
+  /**
+   * Получить список обязательств
+   * @return {@link List<Liability>}
+   */
   public List<Liability> getLiabilityList() throws SQLException {
     return this.queryForAll();
   }
 
+  /**
+   * Добавить обязательство
+   * @param liability обязательство
+   * @return {@link Liability}
+   */
   public Liability createLiability(Liability liability) throws SQLException {
     this.create(liability);
     return liability;
   }
 
-  public Boolean deleteLiability(int id) throws SQLException {
+  /**
+   * Удалить обязательство
+   * @param id идентификатор обязательства
+   */
+  public void deleteLiability(int id) throws SQLException {
     this.deleteById(id);
-    return true;
   }
 }

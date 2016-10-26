@@ -13,17 +13,29 @@ public class AssetDAO extends BaseDaoImpl<Asset, Integer> {
     super(connectionSource, dataClass);
   }
 
+  /**
+   * Получить список активов
+   * @return {@link List<Asset>}
+   */
   public List<Asset> getAssetList() throws SQLException {
     return this.queryForAll();
   }
 
+  /**
+   * Добавить актив
+   * @param asset актив
+   * @return {@link Asset}
+   */
   public Asset createAsset(Asset asset) throws SQLException {
     this.create(asset);
     return asset;
   }
 
-  public Boolean deleteAsset(int id) throws SQLException {
+  /**
+   * Удалить актив
+   * @param id идентификатор актива
+   */
+  public void deleteAsset(int id) throws SQLException {
     this.deleteById(id);
-    return true;
   }
 }

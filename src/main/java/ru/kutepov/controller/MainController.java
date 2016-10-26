@@ -1,5 +1,6 @@
 package ru.kutepov.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.kutepov.db.dao.AssetDAO;
 import ru.kutepov.db.dao.AssetTypeDAO;
@@ -30,44 +31,80 @@ public class MainController {
   @Inject
   private LiabilityDAO liabilityDAO;
 
+  /**
+   * Классификатор категорий активов
+   * @return {@link List<AssetType>}
+   */
   @RequestMapping(value = "/asset/type/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
   public @ResponseBody List<AssetType> getAssetTypeList() throws SQLException {
     return assetTypeDAO.getAssetTypeList();
   }
 
+  /**
+   * Список активов
+   * @return {@link List<Asset>}
+   */
   @RequestMapping(value = "/asset/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
   public @ResponseBody List<Asset> getAssetList() throws SQLException {
     return assetDAO.getAssetList();
   }
 
+  /**
+   * Добавить актив
+   * @param asset актив
+   * @return {@link Asset}
+   */
   @RequestMapping(value = "/asset/add", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
   public @ResponseBody Asset addAsset(@RequestBody Asset asset) throws SQLException {
     return assetDAO.createAsset(asset);
   }
 
+  /**
+   * Удалить актив
+   * @param id идентификатор актива
+   */
   @RequestMapping(value = "/asset/{id}", method = RequestMethod.DELETE)
-  public Boolean deleteAsset(@PathVariable int id) throws SQLException {
-    return assetDAO.deleteAsset(id);
+  @ResponseStatus(value = HttpStatus.OK)
+  public void deleteAsset(@PathVariable int id) throws SQLException {
+    assetDAO.deleteAsset(id);
   }
 
+  /**
+   * Классификатор категорий обязательств
+   * @return {@link List<LiabilityType>}
+   */
   @RequestMapping(value = "/liability/type/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
   public @ResponseBody List<LiabilityType> getLiabilityTypeList() throws SQLException {
     return liabilityTypeDAO.getLiabilityTypeList();
   }
 
+  /**
+   * Список обязательств
+   * @return {@link List<Liability>}
+   */
   @RequestMapping(value = "/liability/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
   public @ResponseBody List<Liability> getLiabilityList() throws SQLException {
     return liabilityDAO.getLiabilityList();
   }
 
+  /**
+   * Добавить обязательство
+   * @param liability обязательство
+   * @return {@link Liability}
+   */
   @RequestMapping(value = "/liability/add", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
   public @ResponseBody Liability addLiability(@RequestBody Liability liability) throws SQLException {
     return liabilityDAO.createLiability(liability);
   }
 
+  /**
+   * Удалить обязательство
+   * @param id идентификатор обязательства
+   */
   @RequestMapping(value = "/liability/{id}", method = RequestMethod.DELETE)
-  public Boolean deleteLiability(@PathVariable int id) throws SQLException {
-    return liabilityDAO.deleteLiability(id);
+  @ResponseStatus(value = HttpStatus.OK)
+  public void deleteLiability(@PathVariable int id) throws SQLException {
+    liabilityDAO.deleteLiability(id);
   }
 
 }

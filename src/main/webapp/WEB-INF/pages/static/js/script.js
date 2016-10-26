@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    /**
+     * Получение классификатора категорий активов
+     */
     $.ajax({
         type: "GET",
         url: "/api/asset/type/list/",
@@ -17,6 +20,9 @@ $(document).ready(function () {
         }
     });
 
+    /**
+     * Получение списка активов
+     */
     $.ajax({
         type: "GET",
         url: "/api/asset/list/",
@@ -55,7 +61,9 @@ $(document).ready(function () {
         }
     });
 
-
+    /**
+     * Получение классификатора категорий обязательств
+     */
     $.ajax({
         type: "GET",
         url: "/api/liability/type/list/",
@@ -73,6 +81,9 @@ $(document).ready(function () {
         }
     });
 
+    /**
+     * Получение списка обязательств
+     */
     $.ajax({
         type: "GET",
         url: "/api/liability/list/",
@@ -111,6 +122,9 @@ $(document).ready(function () {
         }
     });
 
+    /**
+     * Добавить актив
+     */
     $('#btnAddAsset').click(function () {
         $.ajax({
             type: "POST",
@@ -132,6 +146,9 @@ $(document).ready(function () {
         });
     });
 
+    /**
+     * Добавить обязательство
+     */
     $('#btnAddLiability').click(function () {
         $.ajax({
             type: "POST",
@@ -153,6 +170,9 @@ $(document).ready(function () {
         });
     });
 
+    /**
+     * Удалить актив
+     */
     $('#tableAsset').on('click', 'button[name=btnDelAsset]', function () {
         $.ajax({
             type: "DELETE",
@@ -167,6 +187,9 @@ $(document).ready(function () {
         });
     });
 
+    /**
+     * Удалить обязательство
+     */
     $('#tableLiability').on('click', 'button[name=btnDelLiability]', function () {
         $.ajax({
             type: "DELETE",
@@ -181,6 +204,9 @@ $(document).ready(function () {
         });
     });
 
+    /**
+     * Подсчёт собственного капитала
+     */
     function calcAmount() {
         var assets = parseFloat(
             $('#tableAsset').find('tfoot tr th').eq(2).html()
@@ -197,6 +223,9 @@ $(document).ready(function () {
         }
     }
 
+    /**
+     * Настройки выпадающего списка
+     */
     $('.selectpicker').selectpicker({
         style: 'btn-default',
         width: '100%'

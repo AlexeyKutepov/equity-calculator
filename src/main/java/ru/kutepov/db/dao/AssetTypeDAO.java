@@ -13,6 +13,10 @@ public class AssetTypeDAO extends BaseDaoImpl<AssetType, Integer> {
     super(connectionSource, dataClass);
   }
 
+  /**
+   * Получить список категорий активов
+   * @return {@link List<AssetType>}
+   */
   public List<AssetType> getAssetTypeList() throws SQLException {
     return this.queryForAll();
   }

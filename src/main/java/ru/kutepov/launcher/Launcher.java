@@ -8,7 +8,7 @@ import java.net.URL;
 import java.security.ProtectionDomain;
 
 /**
- * Starts jetty-server on the specified port
+ * Запуск jetty-сервера на заданном порту
  */
 public class Launcher {
 

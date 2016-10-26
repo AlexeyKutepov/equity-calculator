@@ -13,6 +13,10 @@ public class LiabilityTypeDAO extends BaseDaoImpl<LiabilityType, Integer> {
     super(connectionSource, dataClass);
   }
 
+  /**
+   * Получить список категорий обязательств
+   * @return {@link List<LiabilityType>}
+   */
   public List<LiabilityType> getLiabilityTypeList() throws SQLException {
     return this.queryForAll();
   }

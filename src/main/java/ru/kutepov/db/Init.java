@@ -20,6 +20,9 @@ public class Init {
   @Inject
   private ConnectionSource connectionSource;
 
+  /**
+   * Создание таблиц и заполнение классификаторов
+   */
   public void init() throws SQLException {
     TableUtils.createTableIfNotExists(connectionSource, AssetType.class);
     TableUtils.createTableIfNotExists(connectionSource, Asset.class);
@@ -30,6 +33,9 @@ public class Init {
     populateLiabilityType();
   }
 
+  /**
+   * Заполнение классификатора категорий активов
+   */
   private void populateAssetType() throws SQLException {
     Dao<AssetType, Integer> assetTypeDao = DaoManager.createDao(connectionSource, AssetType.class);
 
@@ -43,6 +49,9 @@ public class Init {
     }
   }
 
+  /**
+   * Заполнение классификатора категорий обязательств
+   */
   private void populateLiabilityType() throws SQLException {
     Dao<LiabilityType, Integer> liabilityTypeDao = DaoManager.createDao(connectionSource, LiabilityType.class);
 
