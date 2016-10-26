@@ -21,4 +21,9 @@ public class AssetDAO extends BaseDaoImpl<Asset, Integer> {
     this.create(asset);
     return asset;
   }
+
+  public Boolean deleteAsset(int id) throws SQLException {
+    this.deleteById(id);
+    return true;
+  }
 }

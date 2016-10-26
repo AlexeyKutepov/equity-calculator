@@ -35,6 +35,9 @@ $(document).ready(function () {
                         .append($('<td>')
                             .text(data[i]["value"])
                         )
+                        .append($('<td>')
+                            .html("<button name=\"btnDelAsset\" value=\"" + data[i]["id"] + "\" type=\"button\" class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></button>")
+                        )
                     );
                 var value = parseFloat(data[i]["value"]);
                 if (!isNaN(value)) {
@@ -51,7 +54,6 @@ $(document).ready(function () {
             console.log("Error: " + errorThrown + xhr.status + xhr.responseText);
         }
     });
-
 
 
     $.ajax({
@@ -88,6 +90,9 @@ $(document).ready(function () {
                         )
                         .append($('<td>')
                             .text(data[i]["value"])
+                        )
+                        .append($('<td>')
+                            .html("<button name=\"btnDelLiability\" value=\"" + data[i]["id"] + "\" type=\"button\" class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></button>")
                         )
                     );
                 var value = parseFloat(data[i]["value"]);
@@ -139,6 +144,34 @@ $(document).ready(function () {
                     id: $("#selectLiabilityType").find("option:selected").val()
                 }
             }),
+            success: function (data) {
+                location.reload();
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("Error: " + errorThrown + xhr.status + xhr.responseText);
+            }
+        });
+    });
+
+    $('#tableAsset').on('click', 'button[name=btnDelAsset]', function () {
+        $.ajax({
+            type: "DELETE",
+            url: "/api/asset/" + this.value,
+            contentType: "application/json",
+            success: function (data) {
+                location.reload();
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("Error: " + errorThrown + xhr.status + xhr.responseText);
+            }
+        });
+    });
+
+    $('#tableLiability').on('click', 'button[name=btnDelLiability]', function () {
+        $.ajax({
+            type: "DELETE",
+            url: "/api/liability/" + this.value,
+            contentType: "application/json",
             success: function (data) {
                 location.reload();
             },

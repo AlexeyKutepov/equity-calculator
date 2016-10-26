@@ -21,4 +21,9 @@ public class LiabilityDAO extends BaseDaoImpl<Liability, Integer> {
     this.create(liability);
     return liability;
   }
+
+  public Boolean deleteLiability(int id) throws SQLException {
+    this.deleteById(id);
+    return true;
+  }
 }

@@ -45,6 +45,11 @@ public class MainController {
     return assetDAO.createAsset(asset);
   }
 
+  @RequestMapping(value = "/asset/{id}", method = RequestMethod.DELETE)
+  public Boolean deleteAsset(@PathVariable int id) throws SQLException {
+    return assetDAO.deleteAsset(id);
+  }
+
   @RequestMapping(value = "/liability/type/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
   public @ResponseBody List<LiabilityType> getLiabilityTypeList() throws SQLException {
     return liabilityTypeDAO.getLiabilityTypeList();
@@ -58,6 +63,11 @@ public class MainController {
   @RequestMapping(value = "/liability/add", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
   public @ResponseBody Liability addLiability(@RequestBody Liability liability) throws SQLException {
     return liabilityDAO.createLiability(liability);
+  }
+
+  @RequestMapping(value = "/liability/{id}", method = RequestMethod.DELETE)
+  public Boolean deleteLiability(@PathVariable int id) throws SQLException {
+    return liabilityDAO.deleteLiability(id);
   }
 
 }
