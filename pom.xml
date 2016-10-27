@@ -91,7 +91,7 @@
         <directory>src/main/webapp/WEB-INF/pages</directory>
       </resource>
     </resources>
-    <finalName>ormlite-example</finalName>
+    <finalName>equity-calculator</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
