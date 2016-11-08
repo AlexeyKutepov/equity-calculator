@@ -37,7 +37,7 @@ public class MainController {
    */
   @RequestMapping(value = "/asset/type/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
   public @ResponseBody List<AssetType> getAssetTypeList() throws SQLException {
-    return assetTypeDAO.getAssetTypeList();
+    return assetTypeDAO.queryForAll();
   }
 
   /**
@@ -46,7 +46,7 @@ public class MainController {
    */
   @RequestMapping(value = "/asset/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
   public @ResponseBody List<Asset> getAssetList() throws SQLException {
-    return assetDAO.getAssetList();
+    return assetDAO.queryForAll();
   }
 
   /**
@@ -56,7 +56,8 @@ public class MainController {
    */
   @RequestMapping(value = "/asset/add", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
   public @ResponseBody Asset addAsset(@RequestBody Asset asset) throws SQLException {
-    return assetDAO.createAsset(asset);
+    assetDAO.create(asset);
+    return asset;
   }
 
   /**
@@ -66,7 +67,7 @@ public class MainController {
   @RequestMapping(value = "/asset/{id}", method = RequestMethod.DELETE)
   @ResponseStatus(value = HttpStatus.OK)
   public void deleteAsset(@PathVariable int id) throws SQLException {
-    assetDAO.deleteAsset(id);
+    assetDAO.deleteById(id);
   }
 
   /**
@@ -75,7 +76,7 @@ public class MainController {
    */
   @RequestMapping(value = "/liability/type/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
   public @ResponseBody List<LiabilityType> getLiabilityTypeList() throws SQLException {
-    return liabilityTypeDAO.getLiabilityTypeList();
+    return liabilityTypeDAO.queryForAll();
   }
 
   /**
@@ -84,7 +85,7 @@ public class MainController {
    */
   @RequestMapping(value = "/liability/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
   public @ResponseBody List<Liability> getLiabilityList() throws SQLException {
-    return liabilityDAO.getLiabilityList();
+    return liabilityDAO.queryForAll();
   }
 
   /**
@@ -94,7 +95,8 @@ public class MainController {
    */
   @RequestMapping(value = "/liability/add", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
   public @ResponseBody Liability addLiability(@RequestBody Liability liability) throws SQLException {
-    return liabilityDAO.createLiability(liability);
+    liabilityDAO.create(liability);
+    return liability;
   }
 
   /**
@@ -104,7 +106,7 @@ public class MainController {
   @RequestMapping(value = "/liability/{id}", method = RequestMethod.DELETE)
   @ResponseStatus(value = HttpStatus.OK)
   public void deleteLiability(@PathVariable int id) throws SQLException {
-    liabilityDAO.deleteLiability(id);
+    liabilityDAO.deleteById(id);
   }
 
 }

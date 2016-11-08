@@ -17,22 +17,6 @@ public class AssetDAO extends BaseDaoImpl<Asset, Integer> {
   }
 
   /**
-   * Получить актив по id
-   * @return {@link List<Asset>}
-   */
-  public Asset getAssetById(int id) throws SQLException {
-    return this.queryForId(id);
-  }
-
-  /**
-   * Получить список активов
-   * @return {@link List<Asset>}
-   */
-  public List<Asset> getAssetList() throws SQLException {
-    return this.queryForAll();
-  }
-
-  /**
    * Получить список активов определённой категории
    * @param assetType категория актива
    * @return {@link List<Asset>}
@@ -41,23 +25,5 @@ public class AssetDAO extends BaseDaoImpl<Asset, Integer> {
     Map<String, Object> map = new HashMap<>();
     map.put("assetType_id", assetType.getId());
     return this.queryForFieldValues(map);
-  }
-
-  /**
-   * Добавить актив
-   * @param asset актив
-   * @return {@link Asset}
-   */
-  public Asset createAsset(Asset asset) throws SQLException {
-    this.create(asset);
-    return asset;
-  }
-
-  /**
-   * Удалить актив
-   * @param id идентификатор актива
-   */
-  public void deleteAsset(int id) throws SQLException {
-    this.deleteById(id);
   }
 }
